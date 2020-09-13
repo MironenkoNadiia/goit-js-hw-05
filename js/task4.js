@@ -1,13 +1,27 @@
 // Write code under this line
-  class StringBuilder(){
-    this._value = value;
+class StringBuilder {
+  constructor(str) {
+    this._value = str;
   }
-    get value(){
-    return this._value;
-    };
 
-const append = function (str) {
-  
+  get value() {
+    return this._value;
+  }
+
+  append(str) {
+    this._value += str;
+  }
+  prepend(str) {
+    this._value = str + this._value;
+  }
+  pad(str) {
+    this.prepend(str) + this.append(str);
+  }
+}  
+    
+
+//const append = function (str) {
+
 
 
 console.log(typeof StringBuilder);
@@ -15,6 +29,7 @@ console.log(typeof StringBuilder);
 
 
 const builder = new StringBuilder('.');
+console.log(builder.value);
 
 builder.append('^');
 console.log(builder.value); // '.^'
